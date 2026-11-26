@@ -1,0 +1,17 @@
+{
+  "name": "spider-lab-sign-service",
+  "version": "0.1.0",
+  "description": "高性能常驻 JS 签名与补环境 RPC 微服务（替代低效的 Python execjs 与临时文件 subprocess）",
+  "private": true,
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "fastify": "^5.2.0"
+  }
+}
