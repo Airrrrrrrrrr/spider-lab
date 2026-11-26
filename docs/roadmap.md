@@ -59,8 +59,9 @@ flowchart TD
 ## 三、 16 周可持续实战路线清单
 
 ### 第一阶段（W1–W3）：破冰唤醒与工程底座重塑
-- [x] **W1（进行中）：双轨环境隔离与跨语言微服务脚手架**
-  - *平日微任务（30m/晚）*：熟悉 `uv run` 与 `Pydantic v2` 数据模型；阅读旧仓库 `音乐/QQ/QQMusic.js` 与 `小红薯` 代码，梳理入参与返回值。
+- [ ] **W1（进行中 · Day 1 已打卡 ✅）：双轨环境隔离与跨语言微服务脚手架**
+  - *Day 1（已完成）*：完成 `uv` 双轨隔离验证、迁移仓库至 `D:\spider`，吃透 `Pydantic v2` 与 `@dataclass` 选型（见 `docs/notes/w01_pydantic_and_dataclass.md`）。
+  - *Day 2（明日 30m 微任务）*：走读现代异步并发（`async with` / `TaskGroup` / `Semaphore`）与 `curl_cffi` 封装，侦察旧仓库 `QQMusic` 迁移契约（见 `docs/tasks/w01_day2_plan.md`）。
   - *周末实战（3~4h）*：将旧仓库 `QQMusic`（Webpack）与 `小红薯`（补环境）迁移至 `sign_service/providers/`，用 `uv run` 启动异步并发压测，彻底淘汰 `execjs` 与临时文件落盘。
 - [ ] **W2：解构定制版 Scrapy 源码 + 原生异步中间件改造**
   - *平日微任务*：逐模块拆读公司定制版 Scrapy 基类、去重器与 Pipeline 源码，绘制内部数据流架构图。

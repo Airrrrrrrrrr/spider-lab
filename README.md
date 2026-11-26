@@ -62,8 +62,8 @@ uv run python -m spider_lab.cases.w01_rpc_benchmark.run_demo
 ```
 
 ### 2. 本周微任务拆解（每晚 30 分钟 + 周末半天）
-- [ ] **周内微任务 1（30m）**：阅读 `src/spider_lab/models/record.py` 与 `core/` 下两个封装，熟悉 Python 3.12 类型注解、`asyncio.TaskGroup` 与 `Pydantic v2` 校验器写法。
-- [ ] **周内微任务 2（30m）**：从旧仓库拉取 `音乐/QQ/QQMusic.js`，梳理其 Webpack 导出入口与入参格式。
+- [x] **Day 1 微任务（已完成 · 2026-11-26）**：完成双轨隔离验收与项目迁移至 `D:\spider`；走读 `record.py` / `sign_client.py`，吃透 `Pydantic v2` (`@field_validator` / `@computed_field`) 与 `@dataclass(slots=True, frozen=True)` 选型并沉淀至 `docs/notes/w01_pydantic_and_dataclass.md`。
+- [ ] **Day 2 微任务（30m · 见 `docs/tasks/w01_day2_plan.md`）**：走读 `sign_client.py` / `http_client.py` / `run_demo.py` 中的 `asyncio.TaskGroup` + `Semaphore` + `async with`；侦察旧仓库 `音乐/QQ/QQMusic.py` 与 `QQMusic.js` 梳理迁移契约。
 - [ ] **周末半天实战（3~4h）**：
   1. 将 `QQMusic` Webpack 签名填入 `sign_service/providers/qq_music_webpack.js`；
   2. 将旧仓库 `小红薯` 补环境代码接入 `sign_service/providers/xhs_mnsv2.js`（尝试配合 `sandbox/env_proxy.js` 清理旧版 `eval` 代理）；
