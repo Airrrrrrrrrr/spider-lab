@@ -36,7 +36,7 @@ spider/
 ├── sign_service/                # Node.js + Fastify 常驻高性能签名微服务（彻底替代 execjs / 写临时文件）
 │   ├── server.js                # 统一签名网关 (/health, /providers, /sign/:provider)
 │   ├── sandbox/env_proxy.js     # 升级版 Proxy 补环境监控与 toString Symbol 保护底座
-│   └── providers/               # 独立算法/补环境模块槽位（含 demo_hmac、qq_music_webpack、xhs_mnsv2）
+│   └── providers/               # 独立算法/补环境模块槽位（含 demo_hmac、spa6_webpack）
 ├── src/spider_lab/
 │   ├── core/sign_client.py      # 异步连接池签名客户端 (对接 Node Fastify 服务)
 │   ├── core/http_client.py      # 基于 curl_cffi 的 Chrome TLS/JA3 & HTTP/2 指纹请求封装
@@ -63,8 +63,8 @@ uv run python -m spider_lab.cases.w01_rpc_benchmark.run_demo
 
 ### 2. 本周微任务拆解（每晚 30 分钟 + 周末半天）
 - [x] **Day 1 微任务（已完成 · 2026-11-26）**：完成双轨隔离验收与项目迁移至 `D:\spider`；走读 `record.py` / `sign_client.py`，吃透 `Pydantic v2` (`@field_validator` / `@computed_field`) 与 `@dataclass(slots=True, frozen=True)` 选型并沉淀至 `docs/notes/w01_pydantic_and_dataclass.md`。
-- [ ] **Day 2 微任务（30m · 见 `docs/tasks/w01_day2_plan.md`）**：走读 `sign_client.py` / `http_client.py` / `run_demo.py` 中的 `asyncio.TaskGroup` + `Semaphore` + `async with`；侦察旧仓库 `音乐/QQ/QQMusic.py` 与 `QQMusic.js` 梳理迁移契约。
+- [x] **Day 2 微任务（已完成 · 2026-11-27）**：走读 `sign_client.py` / `http_client.py` / `run_demo.py`，掌握 `async with` / `Semaphore` / `TaskGroup` / `curl_cffi` 并沉淀至 `docs/notes/w01_day2_async.md`；完成 `Scrape/spa6` 迁移前契约侦察（见 `docs/tasks/w01_day2_plan.md`）。
 - [ ] **周末半天实战（3~4h）**：
-  1. 将 `QQMusic` Webpack 签名填入 `sign_service/providers/qq_music_webpack.js`；
-  2. 将旧仓库 `小红薯` 补环境代码接入 `sign_service/providers/xhs_mnsv2.js`（尝试配合 `sandbox/env_proxy.js` 清理旧版 `eval` 代理）；
-  3. 参照 `docs/templates/recall_card.md` 为这两个旧案补齐「三分钟唤醒卡片」，提交你的第一次重构 Git Commit！
+  1. 将 `Scrape/spa6` Webpack 签名模块化接入 `sign_service/providers/spa6_webpack.js`，跑通「Fastify 签名 -> `curl_cffi` 异步并发抓取 -> `CrawlRecord` 清洗落盘 JSONL」全链路；
+  2. 用 30 分钟独立小脚本实测体验 `sign_service/sandbox/env_proxy.js` 的缺失属性监控与 `toString` 保护；
+  3. 参照 `docs/templates/recall_card.md` 补齐 `spa6`「三分钟唤醒卡片」，提交你的第一次重构 Git Commit！

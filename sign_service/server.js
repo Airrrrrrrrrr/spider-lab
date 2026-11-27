@@ -12,8 +12,7 @@ const Fastify = require('fastify');
 
 const providers = {
   demo_hmac: require('./providers/demo_hmac'),
-  qq_music_webpack: require('./providers/qq_music_webpack'),
-  xhs_mnsv2: require('./providers/xhs_mnsv2'),
+  spa6_webpack: require('./providers/spa6_webpack'),
 };
 
 function buildServer(opts = { logger: false }) {
