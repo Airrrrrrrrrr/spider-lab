@@ -22,7 +22,6 @@ const rawWindow = {
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0',
     webdriver: false,
     plugins: [0]
-    // TODO 1: 运行后查看 [MISSING!] 日志，补齐缺失的插件数组（至少 1 个元素）
   },
   screen:{
       width: 1024,
@@ -30,7 +29,6 @@ const rawWindow = {
   },
   document: {
     cookie: 'session_id=demo_123',
-    // TODO 3: 用 protectToString(..., 'createElement') 包裹下面的函数，防止 toString 检测暴露源码
     createElement: protectToString(function createElement(tag) {
       return { tagName: String(tag).toUpperCase() };
     }, 'createElement'),
@@ -39,7 +37,6 @@ const rawWindow = {
   atob: protectToString(function atob(b64) {
     return Buffer.from(b64, 'base64').toString('utf8');
   }, 'atob'),
-  // TODO 2: 运行后查看 [MISSING!] 日志，补齐缺失的屏幕对象（要求 width >= 1024）
 };
 
 // 给环境套上监控代理（实战噪音大时，可把 onlyMissing 改为 true 只盯缺失属性）
